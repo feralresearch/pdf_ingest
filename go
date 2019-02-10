@@ -2,10 +2,6 @@
 GHOSTSCRIPT_BINARY="gs"
 FONTPATH="."
 OCR_LANG="eng"
-
-
-
-
 INPATH="$1"
 #echo "INPATH: ${INPATH}"
 INFILE=$(basename "${INPATH}")
@@ -26,12 +22,9 @@ OUTFILE_LINEARIZED="${WORKINGDIR}/${FILENAME}_LINEARIZED.pdf"
 #echo $OUTFILE_LINEARIZED
 
 mkdir -p "$WORKINGDIR"
-
-
 printf "=================================================\n"
 printf "Preparing: ${FILENAME}"
 printf "=================================================\n"
-
 
 ### Show file info
 printf "\nFile Info:\n"
@@ -71,7 +64,7 @@ printf "=================================================\n"
 pdftk "$OUTFILE_LINEARIZED" output "$FINAL_OUTFILE" compress
 
 # The next two lines are a "compression" scheme someone on the internet found, it is extremely slow
-# but in some cases gives large gains. Not reliable enough to leave in though. 
+# but in some cases gives large gains. Not reliable enough to leave in though.
 #pdf2ps "$FINAL_OUTFILE" "${WORKINGDIR}/${FILENAME}.ps"
 #ps2pdf "${WORKINGDIR}/${FILENAME}.ps" "$FINAL_OUTFILE"
 
@@ -84,7 +77,6 @@ pdftotext "$OUTFILE_LINEARIZED" "$DSTPATH/$FILENAME-extracted_text.txt"
 printf "\nExtracting first page as image... (This might take a while)\n"
 printf "=================================================\n"
 convert -density 708x708 "$OUTFILE_LINEARIZED[0]" "$DSTPATH/$FILENAME-cover.png"
-
 
 # OCR
 printf "\nOCR...\n"
