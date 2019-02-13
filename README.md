@@ -1,4 +1,17 @@
-Procedure:
+## PDF Ingest Tool
+Automates as much of the "Manual Procedure" as possible.
+
+# To use:
+./go ./SRC/FILENAME.pdf
+
+# Setup:
+- Clone this repo
+- chmod +x ./go
+- mkdir SRC
+- mkdir DST
+
+
+## Manual Procedure:
 
 1	: File arrives in the email
 2	: File needs to be checked whether it is already in the library or not
