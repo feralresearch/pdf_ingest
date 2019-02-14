@@ -9,6 +9,6 @@ for filename in ./SRC/*.pdf; do
 	DSTPATH="./DST/$FILE_NAME"
 	mkdir -p "$DSTPATH"
 	echo "Processing: $filename..."
-	./go "./SRC/$filename" > "$DSTPATH/$FILE_NAME.log" 2>&1
+	./go "$filename" > "$DSTPATH/$FILE_NAME.log" 2>&1
 done
 echo "...Done!"
