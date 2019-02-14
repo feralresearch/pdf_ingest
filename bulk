@@ -1,0 +1,14 @@
+#!/bin/bash
+for filename in ./SRC/*.pdf; do
+	INPATH="$filename"
+	#echo "INPATH: ${INPATH}"
+	INFILE=$(basename "${INPATH}")
+	#echo "INFILE: $INFILE"
+	FILE_NAME="${INFILE%.*}"
+	#echo "FILENAME: ${FILENAME}"
+	DSTPATH="./DST/$FILE_NAME"
+	mkdir -p "$DSTPATH"
+	echo "Processing: $filename..."
+	./go "./SRC/$filename" > "$DSTPATH/$FILE_NAME.log" 2>&1
+done
+echo "...Done!"

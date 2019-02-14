@@ -77,7 +77,7 @@ pdftotext "$OUTFILE_LINEARIZED" "$DSTPATH/$FILENAME-extracted_text.txt"
 # Extract image
 printf "\nExtracting first page as image... (This might take a while)\n"
 printf "=================================================\n"
-convert -density 708x708 "$OUTFILE_LINEARIZED[0]" "$DSTPATH/$FILENAME-cover.png"
+convert -density 708x708 "$OUTFILE_LINEARIZED[0]" "$DSTPATH/$FILENAME-cover.jpg"
 
 # OCR
 printf "\nOCR...\n"
